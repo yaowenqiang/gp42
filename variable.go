@@ -40,6 +40,17 @@ func main() {
   //m["one"] = 1
   var str string = ""
   fmt.Printf("%s", str)
+  const PI = 3.14
+  fmt.Printf("%f", PI)
+
+  const (
+    b = iota
+    c = iota
+    h = iota
+  )
+  fmt.Printf("\nb: %d\n", b)
+  fmt.Printf("c: %d\n", c)
+  fmt.Printf("h: %d\n", h)
 
 
 }
