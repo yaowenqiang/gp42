@@ -52,6 +52,14 @@ func main() {
   fmt.Printf("c: %d\n", c)
   fmt.Printf("h: %d\n", h)
 
+  const bb = 5;
+  var intVar int = bb
+  var int32Var int32 = bb;
+  var float64Var float64 = bb;
+  var complex64Var complex64 = bb;
+  fmt.Println("intVar", intVar, "\nint32Var", int32Var, "\nfloat64Var", float64Var, "\ncomplex64Var", complex64Var)
+
+
 
 }
 
