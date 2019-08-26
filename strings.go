@@ -14,6 +14,18 @@ func main() {
     fmt.Println(len(str3))
     fmt.Println(utf8.RuneCountInString(str3))
 
+    s := "去年今日此门中，人面桃花相映红"
+    for k, v := range s {
+        fmt.Printf("k: %d, v: %c == %d\n", k,v ,v)
+    }
+
+    s4 := "Beginning of the string" +
+    "second part of the string"
+
+    s5 := "Hel" + "lo, "
+    s5  += "World!"
+    fmt.Println(s4)
+    fmt.Println(s5)
 
 }
 
