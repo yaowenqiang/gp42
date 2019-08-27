@@ -2,6 +2,8 @@ package main
 import (
     "fmt"
     "unicode/utf8"
+    "strings"
+    "bytes"
 )
 func main() {
     str := "Hello world! \nHello Gopher! \n"
@@ -26,6 +28,27 @@ func main() {
     s5  += "World!"
     fmt.Println(s4)
     fmt.Println(s5)
+
+    s7 := fmt.Sprintf("%d%s", 2018, "年")
+    fmt.Println(s7)
+
+    s8 := strings.Join([]string{"hello","world"}, ", ")
+    fmt.Println(s8)
+
+
+    var buffer bytes.Buffer
+    buffer.WriteString("hello")
+    buffer.WriteString(",")
+    buffer.WriteString("World")
+    buffer.WriteString(".")
+    fmt.Println(buffer.String())
+
+
+    var b1 strings.Builder
+
+    b1.WriteString("ABC")
+    b1.WriteString("DEF")
+    fmt.Println(b1.String())
 
 }
 
