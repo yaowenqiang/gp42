@@ -30,6 +30,19 @@ func main() {
     newarr := arr2
     arr2[2] = 100
     fmt.Println(arr2[2], newarr[2])
+
+    var arr3 = [...][5]int{{10,20},{30,40}}
+
+    fmt.Printf("%# v", pretty.Formatter(arr3))
+
+    type myType struct {
+        a,b int
+    }
+
+    var x = []myType{{1,2}, {3,4},{5,6}}
+
+    fmt.Printf("%# v\n", pretty.Formatter(x))
+    fmt.Printf("%v\n", x)
 }
 
 
