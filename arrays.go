@@ -38,11 +38,23 @@ func main() {
     type myType struct {
         a,b int
     }
-
     var x = []myType{{1,2}, {3,4},{5,6}}
 
     fmt.Printf("%# v\n", pretty.Formatter(x))
     fmt.Printf("%v\n", x)
+
+
+    b := [...][5]int{{10,20},{30,40}, {30,40,50,60}}
+    fmt.Println(b[1][1], len(b))
+    fmt.Printf("%# v\n", pretty.Formatter(b))
+
+
+    var arrAge2 = [5]int{1,2,3,4,5}
+    for i, v := range arrAge2 {
+        fmt.Printf("%d 的年龄: %d\n", i, v)
+    }
+
+
 }
 
 
