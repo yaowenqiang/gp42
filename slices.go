@@ -52,3 +52,9 @@ func append_demo() {
 	s4 := append(s3[3:6], s3[2:]...)
 	fmt.Printf("s4 = %+v\n", s4)
 }
+
+fn stale_slice() {
+	se := []int{1,2,3}
+
+
+}
