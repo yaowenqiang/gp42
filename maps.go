@@ -2,7 +2,16 @@ package main
 
 import (
 	"fmt"
+	"time"
 )
+
+type field struct {
+	name string
+}
+
+func (p *field) print() {
+	fmt.Println(p.name)
+}
 
 func main() {
 	map1 := make(map[string]string, 5)
@@ -40,8 +49,8 @@ func main() {
 		fmt.Println("default case")
 	}
 
-	var c1, c2 chan int
-	var i3, i2 int
+	var c1, c2, c3 chan int
+	var i1, i2 int
 
 	select {
 	case i1 = <-c1:
@@ -57,4 +66,39 @@ func main() {
 	case <-time.After(time.Second * 3): //超时退出
 		fmt.Println("request time out")
 	}
+	for i, j := 0, 0; i < j; i, j = i+1, j-1 {
+		fmt.Printf("i = %+v\n", i)
+	}
+
+	a := []int{1, 2, 3, 4, 5, 6, 7, 8}
+	for i, j := 0, len(a)-1; i < j; i, j = i+1, j-1 {
+		a[i], a[j] = a[j], a[i]
+	}
+
+	for j := 0; j < 5; j++ {
+		for i := 0; i < 50; i++ {
+			if i > 5 {
+				break
+			}
+			fmt.Printf("i = %+v\n", i)
+		}
+	}
+
+	data := []field{{"one"}, {"tow"}, {"three"}}
+
+	for _, v := range data {
+		go v.print()
+	}
+
+	time.Sleep(3 * time.Second)
+
+	data2 := []string{"one", "tow", "three"}
+
+	for _, v := range data2 {
+		go func(in string) {
+			fmt.Printf("in = %+v\n", in)
+		}(v)
+	}
+
+	time.Sleep(3 * time.Second)
 }
