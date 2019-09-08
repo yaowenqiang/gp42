@@ -17,8 +17,9 @@ func main() {
 
 func Sqrt(f float64) (float64, error) {
 	if f < 0 {
-		return 0, errors.New("Math - square root of negative number")
+		//return 0, errors.New("Math - square root of negative number, the number is %d", f)
+		return 0, fmt.Errorf(" the square root of negative number %g", f)
 	}
-	return 1, errors.New("Math - square root of negative number")
+	return 1, errors.New("Math - square root of negative number ")
 
 }
