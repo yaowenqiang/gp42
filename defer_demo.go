@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 )
 
 func div(a, b int) {
@@ -16,7 +17,22 @@ func div(a, b int) {
 	}
 }
 
+func protect(g func()) {
+	defer func() {
+		log.Println("done")
+		if err := recover(); err != nil {
+			log.Printf("run time panic: %v", err)
+		}
+	}()
+	log.Println("start")
+	g()
+}
+
 func main() {
+	protect(test)
 	div(10, 0)
 	div(10, -1)
+}
+func test() {
+	fmt.Printf(" hello world\n")
 }
