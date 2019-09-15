@@ -2,11 +2,31 @@ package main
 
 import (
 	"fmt"
+	"time"
 )
+
+//type funcType func(int, int) int
+
+type funcType func(time.Time)
 
 func main() {
 	testa(1, 2, 1.1)
 	testc(1, 2, 1.1, 4, 5, 6, 7, 8)
+	f := func() int { return 7 }
+	fmt.Printf("f() = %+v\n", f())
+
+	f1 := func(t time.Time) time.Time { return t }
+
+	fmt.Printf("f1(time.Now()) = %+v\n", f1(time.Now()))
+
+	var timer funcType = CurrentTime
+	timer(time.Now())
+
+	funcType(CurrentTime)(time.Now())
+}
+
+func CurrentTime(start time.Time) {
+	fmt.Println(start)
 }
 
 func IndexRune(s string, r rune) int {
