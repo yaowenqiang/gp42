@@ -4,6 +4,11 @@ import (
 	"fmt"
 )
 
+type S struct {
+	a int
+	b float64
+}
+
 func main() {
 	s := make([]int, 10, 100)
 	fmt.Printf("s = %+v\n", s)
@@ -24,5 +29,8 @@ func main() {
 
 	m := make(map[string]int, 100)
 	fmt.Printf("m = %+v\n", m)
+	sss := new(S)
+	fmt.Printf("new(S) = %+v\n", new(S))
+	fmt.Printf("sss = %+v\n", sss)
 
 }
