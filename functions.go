@@ -23,6 +23,16 @@ func main() {
 	timer(time.Now())
 
 	funcType(CurrentTime)(time.Now())
+	list(1, 2, 3, 45, 6, 7, 78)
+
+	numbers := []int{1, 2, 3, 4, 5, 6, 7, 8}
+	list(numbers...)
+
+	fplus := func(x, y int) int { return x + y }
+	fmt.Printf("fplus(3,4) = %+v\n", fplus(3, 4))
+
+	a := func(x, y int) int { return x + y }(3, 4)
+	fmt.Printf("a = %+v\n", a)
 }
 
 func CurrentTime(start time.Time) {
@@ -59,4 +69,8 @@ func testc(a, b int, z float32, values ...int) bool {
 	//可变参数
 	fmt.Printf("values	 = %+v\n", values)
 	return true
+}
+
+func list(nums ...int) {
+	fmt.Println(nums)
 }
