@@ -33,6 +33,22 @@ func main() {
 
 	a := func(x, y int) int { return x + y }(3, 4)
 	fmt.Printf("a = %+v\n", a)
+
+	func() {
+		sum := 0
+		for i := 1; i <= 1e6; i++ {
+			sum += i
+		}
+		fmt.Printf("sum = %+v\n", sum)
+	}()
+
+	fn := func() {
+		fmt.Println("hello")
+	}
+	fn()
+
+	fmt.Println("匿名函数加法求和", func(x, y int) int { return x + y }(3, 4))
+
 }
 
 func CurrentTime(start time.Time) {
