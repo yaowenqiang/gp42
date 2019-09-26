@@ -18,6 +18,35 @@ type B interface {
 	f()
 }
 
+/*
+type Bad interface {
+	Bad
+}
+
+type Bad1 interface {
+	Bad2
+}
+type Bad2 interface {
+	Bad1
+}
+*/
+
+type ReadWrite interface {
+	Read(b Buffer) bool
+	Write(b Buffer) bool
+}
+
+type Lock interface {
+	Lock()
+	Unlock()
+}
+
+type File interface {
+	ReadWrite
+	Lock
+	Close()
+}
+
 func (a A) f() {
 	fmt.Println("A:f()", a.Books)
 }
