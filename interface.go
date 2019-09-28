@@ -29,7 +29,6 @@ type Bad1 interface {
 type Bad2 interface {
 	Bad1
 }
-*/
 
 type ReadWrite interface {
 	Read(b Buffer) bool
@@ -47,15 +46,26 @@ type File interface {
 	Close()
 }
 
+*/
+
 func (a A) f() {
 	fmt.Println("A:f()", a.Books)
 }
 
 type I int
+type S interface {
+	f()
+}
 
 func (i I) f() {
 	fmt.Println("I.f() ", i)
 }
+
+/*
+func (s S) f() {
+	fmt.Println("S.f() ", s)
+}
+*/
 
 func main() {
 	//var i interface{} = 99
@@ -76,5 +86,34 @@ func main() {
 	var b2 B = I(299)
 
 	b2.f()
+
+	/*
+		var varS S
+		varS = S("Tstring")
+
+		if v, ok := varS.(T); ok {
+			fmt.Println("varI 类型断言结果为: ", v)
+			varS.f()
+		}
+	*/
+	funcName("abc")
+	funcName(123)
+
+}
+
+func funcName(a interface{}) string {
+
+	//fmt.Println("Where are you ,Jonny?", a.(string))
+
+	value, ok := a.(string)
+
+	if !ok {
+		fmt.Println("It's not ok for type string")
+		return ""
+
+	}
+
+	fmt.Println("The value is : ", value)
+	return value
 
 }
