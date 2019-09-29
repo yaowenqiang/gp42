@@ -99,6 +99,21 @@ func main() {
 	funcName("abc")
 	funcName(123)
 
+	/*
+		TODO type-switch
+		var value interface{}
+
+		switch str := value.(type) {
+		case string:
+			fmt.Println("value类型断言结果为string", str)
+		case Stringer:
+			fmt.Println("value类型断言结果为stringer", str)
+		default:
+			fmt.Println("value类型断言不在上术类型之中")
+
+		}
+	*/
+
 }
 
 func funcName(a interface{}) string {
