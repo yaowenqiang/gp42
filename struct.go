@@ -3,6 +3,7 @@ package main
 
 import (
 	"fmt"
+	"reflect"
 )
 
 type Student struct {
@@ -22,8 +23,8 @@ type Student1 struct {
 
 func main() {
 	st := Student{"Titan", 14, 102}
-	fmt.Println(reflect.typeOf(st).Field(0).Tag)
-	fmt.Println(reflect.typeOf(st).Field(1).Tag)
-	fmt.Println(reflect.typeOf(st).Field(2).Tag)
+	fmt.Println(reflect.TypeOf(st).Field(0).Tag)
+	fmt.Println(reflect.TypeOf(st).Field(1).Tag)
+	fmt.Println(reflect.TypeOf(st).Field(2).Tag)
 
 }
